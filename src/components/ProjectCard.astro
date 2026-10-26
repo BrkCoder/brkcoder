@@ -1,0 +1,21 @@
+---
+import type { Project } from '../content/types';
+import TerminalCard from './TerminalCard.astro';
+interface Props { project: Project }
+const { project: p } = Astro.props;
+---
+<TerminalCard path={p.path}>
+  <h3>{p.name}</h3>
+  <p class="summary">{p.summary}</p>
+  <pre>{p.snippet}</pre>
+  <ul class="tags">{p.tags.map((t) => <li>{t}</li>)}</ul>
+  {p.links.length > 0 && <div class="links">{p.links.map((l) => <a href={l.href}>{l.label}</a>)}</div>}
+</TerminalCard>
+<style>
+  h3 { margin: 0; font-size: var(--fs-card-title); color: var(--text-strong); }
+  .summary { margin: var(--s-3) 0 0; font-size: var(--fs-body-lg); line-height: 1.6; color: var(--text-muted); }
+  pre { margin: 20px 0 0; padding: var(--s-4); border-radius: var(--r-btn); background: var(--code-bg); font-family: var(--font-mono); font-size: var(--fs-mono-md); color: var(--text); overflow-x: auto; }
+  .tags { margin: 20px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: var(--s-2); font-family: var(--font-mono); font-size: var(--fs-tag); }
+  .tags li { padding: var(--s-1) 10px; border-radius: var(--r-tag); border: 1px solid var(--border-strong); }
+  .links { margin-top: var(--s-5); display: flex; flex-wrap: wrap; gap: 20px; font-size: var(--fs-small); }
+</style>

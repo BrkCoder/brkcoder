@@ -1,0 +1,17 @@
+---
+import { projects } from '../content/projects';
+import Prompt from './Prompt.astro';
+import ProjectCard from './ProjectCard.astro';
+---
+<section id="work" class="container">
+  <Prompt cmd="$ ls ./featured" />
+  <h2>Selected work</h2>
+  <div class="grid">
+    {projects.filter((p) => p.featured).map((p) => <ProjectCard project={p} />)}
+  </div>
+</section>
+<style>
+  section { padding-block: var(--s-9) var(--s-7); }
+  h2 { margin: var(--s-3) 0 var(--s-7); font-size: var(--fs-section); letter-spacing: -0.02em; color: var(--text-strong); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)); gap: var(--s-5); }
+</style>

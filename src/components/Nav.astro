@@ -1,0 +1,21 @@
+---
+import { profile } from '../content/profile';
+const items = ['work', 'stack', 'experience', 'contact'];
+---
+<header>
+  <nav class="container">
+    <a class="logo" href="#top">~/{profile.handle}<span>_</span></a>
+    <div class="links">
+      {items.map((i) => <a href={`#${i}`}>./{i}</a>)}
+    </div>
+  </nav>
+</header>
+<style>
+  header { position: sticky; top: 0; z-index: 5; background: var(--bg); border-bottom: 1px solid var(--border); }
+  nav { padding-block: 20px; display: flex; flex-wrap: wrap; gap: var(--s-4); align-items: center; justify-content: space-between; }
+  .logo { font-family: var(--font-mono); font-weight: 700; font-size: var(--fs-body); text-decoration: none; color: var(--text-strong); }
+  .logo span { color: var(--accent); }
+  .links { display: flex; flex-wrap: wrap; gap: 28px; font-family: var(--font-mono); font-size: var(--fs-mono-md); }
+  .links a { color: var(--text-subtle); text-decoration: none; }
+  .links a:hover { color: var(--accent-hover); }
+</style>

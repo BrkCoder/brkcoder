@@ -1,0 +1,16 @@
+---
+import { profile } from '../content/profile';
+---
+<section>
+  <div class="container grid">
+    {profile.stats.map((s) => (
+      <div><div class="num">{s.value}</div><div class="label">{s.label}</div></div>
+    ))}
+  </div>
+</section>
+<style>
+  section { border-block: 1px solid var(--border); background: var(--bg-band); }
+  .grid { padding-block: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--s-6); }
+  .num { font-family: var(--font-mono); font-size: var(--fs-stat); font-weight: 700; color: var(--text-strong); }
+  .label { margin-top: 6px; color: var(--text-subtle); font-size: var(--fs-small); }
+</style>

@@ -1,0 +1,24 @@
+---
+import { stack } from '../content/stack';
+import Prompt from './Prompt.astro';
+---
+<section id="stack" class="container">
+  <Prompt cmd="$ cat package.json | jq .skills" />
+  <h2>Stack</h2>
+  <div class="grid">
+    {Object.entries(stack).map(([key, lines]) => (
+      <div class="card">
+        <div class="key">"{key}":</div>
+        <div class="vals">{lines.map((l, i) => <>{i > 0 && <br />}{l.join(' · ')}</>)}</div>
+      </div>
+    ))}
+  </div>
+</section>
+<style>
+  section { padding-block: var(--s-8); }
+  h2 { margin: var(--s-3) 0 40px; font-size: var(--fs-section); letter-spacing: -0.02em; color: var(--text-strong); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: var(--s-5); font-family: var(--font-mono); font-size: var(--fs-small); }
+  .card { padding: var(--s-5); border: 1px solid var(--border-card); border-radius: var(--r-card); }
+  .key { color: var(--text-faint); font-size: var(--fs-mono-sm); }
+  .vals { margin-top: var(--s-3); line-height: 2; color: var(--text); }
+</style>

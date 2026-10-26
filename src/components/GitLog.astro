@@ -1,0 +1,34 @@
+---
+import { roles, education } from '../content/experience';
+import Prompt from './Prompt.astro';
+---
+<section id="experience" class="container">
+  <Prompt cmd="$ git log --career" />
+  <h2>Experience</h2>
+  <div class="log">
+    {roles.map((r, i) => (
+      <div>
+        <div class:list={['when', { head: i === 0 }]}>
+          {i === 0 ? `HEAD → ${r.start}–present` : `${r.start}–${r.end}`}
+        </div>
+        <h3>{r.title} · {r.company}</h3>
+        {r.impact.map((line) => <p>{line}</p>)}
+      </div>
+    ))}
+    {education.map((e) => (
+      <div>
+        <div class="when">{e.year}</div>
+        <h3>{e.title} · {e.institution}</h3>
+      </div>
+    ))}
+  </div>
+</section>
+<style>
+  section { padding-block: var(--s-8); }
+  h2 { margin: var(--s-3) 0 40px; font-size: var(--fs-section); letter-spacing: -0.02em; color: var(--text-strong); }
+  .log { border-inline-start: 1px solid var(--border-strong); padding-inline-start: 28px; display: flex; flex-direction: column; gap: 40px; }
+  .when { font-family: var(--font-mono); font-size: var(--fs-mono-sm); color: var(--text-faint); }
+  .when.head { color: var(--accent); }
+  h3 { margin: var(--s-2) 0 0; font-size: var(--fs-role); color: var(--text-strong); }
+  p { margin: var(--s-2) 0 0; max-width: 760px; font-size: var(--fs-body); line-height: 1.6; color: var(--text-subtle); }
+</style>

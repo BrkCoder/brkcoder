@@ -1,0 +1,81 @@
+/* Design tokens from the Option A "Terminal" reference. The only file allowed to contain hex values. */
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/inter-latin.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/jetbrains-mono-latin.woff2') format('woff2');
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* surfaces */
+  --bg: #0d1014;
+  --bg-band: #101419;
+  --surface: #12161c;
+  --code-bg: #0b0e12;
+
+  /* borders */
+  --border: #222831;
+  --border-card: #262d36;
+  --border-strong: #39414c;
+
+  /* text */
+  --text-strong: #f4f6f8;
+  --text: #d7dce2;
+  --text-muted: #b9c0c9;
+  --text-subtle: #a9b1bc;
+  --text-faint: #7e8794;
+
+  /* accent */
+  --accent: #f2b84b;
+  --accent-hover: #ffd27f;
+  --on-accent: var(--bg);
+  --ok: #5fd38d;
+
+  /* type */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --fs-hero: clamp(48px, 8vw, 104px);
+  --fs-contact: clamp(36px, 5vw, 64px);
+  --fs-section: 40px;
+  --fs-stat: 40px;
+  --fs-card-title: 26px;
+  --fs-card-title-sm: 24px;
+  --fs-role: 22px;
+  --fs-lead: 22px;
+  --fs-contact-lead: 19px;
+  --fs-body-lg: 17px;
+  --fs-body: 16px;
+  --fs-small: 15px;
+  --fs-mono-md: 14px;
+  --fs-mono-sm: 13px;
+  --fs-tag: 12px;
+
+  /* spacing scale */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 80px;
+  --s-9: 112px;
+
+  /* radii */
+  --r-btn: 8px;
+  --r-card: 12px;
+  --r-tag: 99px;
+
+  --container: 1200px;
+  --gutter: 24px;
+  --touch: 48px;
+}

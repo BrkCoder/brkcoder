@@ -1,0 +1,8 @@
+---
+interface Props { cmd: string }
+const { cmd } = Astro.props;
+---
+<p class="prompt" data-type>{cmd}</p>
+<style>
+  .prompt { margin: 0; font-family: var(--font-mono); font-size: var(--fs-mono-md); color: var(--accent); min-height: 1lh; }
+</style>

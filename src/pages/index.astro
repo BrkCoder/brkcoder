@@ -1,0 +1,35 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import StatsBand from '../components/StatsBand.astro';
+import Work from '../components/Work.astro';
+import StackGrid from '../components/StackGrid.astro';
+import GitLog from '../components/GitLog.astro';
+import Contact from '../components/Contact.astro';
+import { profile } from '../content/profile';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Barak Inbal — Web Developer (Angular, React)</title>
+    <meta name="description" content={profile.pitch} />
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin />
+  </head>
+  <body>
+    <a class="skip-link" href="#work">Skip to content</a>
+    <Nav />
+    <main>
+      <Hero />
+      <StatsBand />
+      <Work />
+      <StackGrid />
+      <GitLog />
+      <Contact />
+    </main>
+  <script>import "../scripts/motion";</script>
+  </body>
+</html>

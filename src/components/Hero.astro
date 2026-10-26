@@ -1,0 +1,32 @@
+---
+import { profile } from '../content/profile';
+---
+<section id="top" class="container">
+  <p class="who">barak@il:~$ <span data-type>whoami</span></p>
+  <h1>{profile.name}<span class="cursor" aria-hidden="true">▍</span></h1>
+  <p class="pitch">{profile.pitch}</p>
+  <div class="status">
+    <span><span class="dot">●</span> Currently @ {profile.company}</span>
+    <span>{profile.location}</span>
+    <span>{profile.openTo}</span>
+  </div>
+  <div class="actions">
+    <a class="btn primary" href={profile.links.github}>View GitHub →</a>
+    <a class="btn" href={profile.links.cv}>Download CV (PDF)</a>
+    <a class="btn" href={profile.links.linkedin}>LinkedIn</a>
+  </div>
+</section>
+<style>
+  section { padding-block: 120px 96px; }
+  .who { margin: 0 0 28px; font-family: var(--font-mono); font-size: var(--fs-small); color: var(--text-faint); }
+  .who span { color: var(--text); }
+  h1 { margin: 0; font-size: var(--fs-hero); line-height: 0.98; font-weight: 700; letter-spacing: -0.03em; color: var(--text-strong); }
+  .cursor { color: var(--accent); animation: blink 1.1s steps(1) infinite; }
+  .pitch { margin: var(--s-6) 0 0; max-width: 720px; font-size: var(--fs-lead); line-height: 1.5; color: var(--text-muted); }
+  .status { margin-top: 28px; display: inline-flex; flex-wrap: wrap; gap: 10px 20px; font-family: var(--font-mono); font-size: var(--fs-mono-md); color: var(--text-subtle); padding: var(--s-3) var(--s-4); border: 1px solid var(--border); border-radius: var(--r-btn); background: var(--surface); }
+  .dot { color: var(--ok); }
+  .actions { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 14px; }
+  .btn { box-sizing: content-box; display: inline-flex; align-items: center; min-height: var(--touch); padding: 0 var(--s-5); border-radius: var(--r-btn); border: 1px solid var(--border-strong); color: var(--text-strong); font-weight: 600; text-decoration: none; }
+  .btn.primary { background: var(--accent); border: 0; color: var(--on-accent); }
+  .btn:not(.primary):hover { color: var(--text-strong); border-color: var(--accent); }
+</style>

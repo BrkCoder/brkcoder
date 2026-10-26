@@ -1,0 +1,15 @@
+---
+interface Props { path: string }
+const { path } = Astro.props;
+---
+<article>
+  <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span>{path}</span></div>
+  <div class="body"><slot /></div>
+</article>
+<style>
+  article { border: 1px solid var(--border-card); border-radius: var(--r-card); background: var(--surface); overflow: hidden; }
+  .bar { display: flex; gap: var(--s-2); align-items: center; padding: var(--s-3) var(--s-4); border-bottom: 1px solid var(--border-card); font-family: var(--font-mono); font-size: var(--fs-mono-sm); color: var(--text-faint); }
+  i { width: 10px; height: 10px; border-radius: 50%; background: var(--border-strong); }
+  span { margin-inline-start: var(--s-2); }
+  .body { padding: 28px; }
+</style>
